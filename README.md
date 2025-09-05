@@ -1,4 +1,4 @@
-# goido
+
 
 **Descripción**  
 Proyecto en JavaScript utilizando **React Native** y **Firebase**. Es una aplicación móvil desarrollada como parte de la evaluación del Módulo 5.
