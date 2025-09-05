@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Alert, ActivityIndicator } from 'react-native';
+import { View, Text, TextInput, StyleSheet, Alert, ActivityIndicator, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { getAuth } from 'firebase/auth';
 import { getFirestore, doc, getDoc, updateDoc } from 'firebase/firestore';
 import app from '../firebase';
@@ -54,36 +54,95 @@ export default function EditUserScreen({ navigation }) {
   }
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Editar Información</Text>
-      <TextInput placeholder="Nombre" style={styles.input} value={nombre} onChangeText={setNombre} />
-      <TextInput placeholder="Título universitario" style={styles.input} value={titulo} onChangeText={setTitulo} />
-      <TextInput placeholder="Año de graduación" style={styles.input} value={anio} onChangeText={setAnio} keyboardType="numeric" />
-      <Button title="Guardar cambios" onPress={handleSave} />
-    </View>
+    <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
+      <View style={styles.logoContainer}>
+        <Image source={require('../assets/splash-icon.png')} style={styles.logo} />
+        <Text style={styles.title}>Editar Información</Text>
+      </View>
+      <View style={styles.formBox}>
+        <TextInput placeholder="Nombre" style={styles.input} value={nombre} onChangeText={setNombre} />
+        <TextInput placeholder="Título universitario" style={styles.input} value={titulo} onChangeText={setTitulo} />
+        <TextInput placeholder="Año de graduación" style={styles.input} value={anio} onChangeText={setAnio} keyboardType="numeric" />
+        <TouchableOpacity style={styles.button} onPress={handleSave}>
+          <Text style={styles.buttonText}>Guardar cambios</Text>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    padding: 24,
+    backgroundColor: '#eaf6fb',
+  },
+  logoContainer: {
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  logo: {
+    width: 90,
+    height: 90,
+    borderRadius: 20,
+    marginBottom: 8,
+    borderWidth: 2,
+    borderColor: '#007bff',
     backgroundColor: '#fff',
-    padding: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 4,
   },
   title: {
-    fontSize: 22,
+    fontSize: 26,
     fontWeight: 'bold',
-    marginBottom: 24,
+    color: '#007bff',
+    marginBottom: 10,
+    letterSpacing: 1,
+    textAlign: 'center',
+  },
+  formBox: {
+    width: '100%',
+    maxWidth: 380,
+    backgroundColor: '#fff',
+    borderRadius: 18,
+    padding: 20,
+    shadowColor: '#007bff',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.11,
+    shadowRadius: 10,
+    elevation: 6,
+    alignSelf: 'center',
   },
   input: {
     width: '100%',
     padding: 12,
     borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 8,
-    marginBottom: 12,
+    borderColor: '#b3d7f2',
+    borderRadius: 10,
+    marginBottom: 14,
     fontSize: 16,
+    backgroundColor: '#f7fbff',
+  },
+  button: {
+    backgroundColor: '#007bff',
+    paddingVertical: 13,
+    borderRadius: 10,
+    marginTop: 10,
+    alignItems: 'center',
+    shadowColor: '#007bff',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.18,
+    shadowRadius: 6,
+    elevation: 2,
+  },
+  buttonText: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 18,
+    letterSpacing: 1,
   },
 });

@@ -1,5 +1,13 @@
 {
   "expo": {
+    "extra": {
+      "FIREBASE_API_KEY": "AIzaSyD8JnPwq1iQXP3oSIpLNL0t1lxKfl6fHm4",
+      "FIREBASE_AUTH_DOMAIN": "evaluacion-modulo5-65198.firebaseapp.com",
+      "FIREBASE_PROJECT_ID": "evaluacion-modulo5-65198",
+      "FIREBASE_STORAGE_BUCKET": "evaluacion-modulo5-65198.firebasestorage.app",
+      "FIREBASE_MESSAGING_SENDER_ID": "429792185335",
+      "FIREBASE_APP_ID": "1:429792185335:web:1d021d141621e4a3f17cf2"
+    },
     "name": "evaluacionModuloMyS",
     "slug": "evaluacionModuloMyS",
     "version": "1.0.0",

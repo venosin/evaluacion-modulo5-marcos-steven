@@ -4,14 +4,17 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+import Constants from 'expo-constants';
+
 const firebaseConfig = {
-  apiKey: "AIzaSyD8JnPwq1iQXP3oSIpLNL0t1lxKfl6fHm4",
-  authDomain: "evaluacion-modulo5-65198.firebaseapp.com",
-  projectId: "evaluacion-modulo5-65198",
-  storageBucket: "evaluacion-modulo5-65198.firebasestorage.app",
-  messagingSenderId: "429792185335",
-  appId: "1:429792185335:web:1d021d141621e4a3f17cf2"
+  apiKey: Constants.expoConfig.extra.FIREBASE_API_KEY,
+  authDomain: Constants.expoConfig.extra.FIREBASE_AUTH_DOMAIN,
+  projectId: Constants.expoConfig.extra.FIREBASE_PROJECT_ID,
+  storageBucket: Constants.expoConfig.extra.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: Constants.expoConfig.extra.FIREBASE_MESSAGING_SENDER_ID,
+  appId: Constants.expoConfig.extra.FIREBASE_APP_ID,
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+export default app;
